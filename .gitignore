@@ -1,0 +1,4 @@
+# Basic things to ignore for a node app
+node_modules
+dist
+

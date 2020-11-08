@@ -1,13 +1,12 @@
 {
-  "name": "grpc-js-example-server",
+  "name": "grpc-js-example-client",
   "version": "0.0.1",
-  "description": "Simple grpc server node app",
-  "main": "server.js",
+  "description": "Simple grpc client node app",
+  "main": "client.js",
   "scripts": {
-    "clean": "rm -rf dist",
     "copy-proto": "rm ./src/grpcjs/proto/* && cp -R ../protos/gen/src/* ./src/ && cp -R ../protos/gen/src/* dist/",
     "tsc": "tsc",
-    "start": "tsc && set DEBUG=* && node dist/server.js",
+    "start": "tsc && set DEBUG=* && node dist/client.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

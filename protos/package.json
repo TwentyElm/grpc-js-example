@@ -1,0 +1,23 @@
+{
+  "name": "grpc-js-example-proto",
+  "version": "0.0.1",
+  "description": "small app to generate js proto & grpc code for the sample app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf ./gen/",
+    "prep": "mkdirp ./gen/src/grpcjs/proto",
+    "gen-js-code": "grpc_tools_node_protoc --js_out=import_style=commonjs,binary:./gen/src/grpcjs/proto --grpc_out=grpc_js:./gen/src/grpcjs/proto -I . *.proto",
+    "gen-ts-code": "grpc_tools_node_protoc --plugin=protoc-gen-ts=/c/code/grpc-js-example/protos/node_modules/.bin/protoc-gen-ts.cmd --ts_out=./gen/src/grpcjs/proto -I . *.proto",
+    "build": "npm run clean && npm run prep && npm run gen-js-code && npm run gen-ts-code"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "google-protobuf": "^3.14.0-rc.1",
+    "grpc-tools": "^1.9.1",
+    "grpc_tools_node_protoc_ts": "^5.0.1",
+    "mkdirp": "^1.0.4",
+    "typescript": "^4.0.5"
+  }
+}
